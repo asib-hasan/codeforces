@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--) {
+        int n,k,p;
+        cin>>n>>k>>p;
+        k = (k<0)? -k : k;
+        int need = (k+(p-1))/p;
+        if (need <= n) {
+            cout<<need<<endl;
+        } else {
+            cout<<-1<<endl;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        std::vector<int>v(n+1);
+        
+        for(int i=0;i<n-2;i++){
+            cin>>v[i];
+        }
+        
+        int found = 0,zer = 0, one = 0;
+        for(int i=0;i<n-2;i++){
+            if(v[i] == 0)zer++;
+            else {
+                if((zer == 1) && one){
+                    found = 1;
+                    break;
+                }
+                zer = 0;
+                one++;
+            }
+        }
+        cout<<((found == 1)? "NO":"YES")<<endl;
+    }
+
+}

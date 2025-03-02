@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--) {
+        int n,a,b,c,ans;
+        cin>>n>>a>>b>>c;
+        int sum = a+b+c;
+        int remain = n%sum;
+        ans = (n/sum)*3;
+        if (remain == 0) {
+            cout<<(n/sum)*3<<endl;
+            continue;
+        }
+
+        if (n-remain + a >= n) {
+            ans++;
+        } else if (n-remain + a + b >= n) {
+            ans+=2;
+        } else if (n-remain + a + b + c >= n) {
+            ans+=3;
+        }
+        cout<<ans<<endl;
+    }
+}

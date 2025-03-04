@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+bool isPerfectSquare(ll num) {
+    ll root = sqrt(num);
+    return root * root == num;
+}
+
+int main() {
+    int tt;
+    cin>>tt;
+    while (tt--) {
+        int n,k;
+        cin>>n>>k;
+        vector<int>ans;
+
+        int start=n,end=1;
+        int temp=n,temp_k=k-1;
+        if (k==1) {
+            for (int i=1;i<=n;i++) {
+                cout<<i<<" ";
+            }
+            cout<<'\n';
+            continue;
+        }
+        int cnt = 0;
+        while (true) {
+            ans.push_back(start);
+            start--;
+            cnt++;
+            if (cnt==temp_k) {
+                if (ans.size()>=n)break;
+                ans.push_back(end);
+                cnt=0;
+                end++;
+            }
+            if (ans.size()>=n)break;
+        }
+
+        for (int i=0;i<ans.size();i++) {
+            cout<<ans[i]<<" ";
+        }
+        cout<<'\n';
+        skip:
+           continue;
+    }
+}

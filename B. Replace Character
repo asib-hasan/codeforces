@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+bool isPerfectSquare(ll num) {
+    ll root = sqrt(num);
+    return root * root == num;
+}
+
+int main() {
+    int tt;
+    cin>>tt;
+    while (tt--) {
+        string s;
+        int n;
+        cin>>n;
+        cin>>s;
+        int Max = -1,Index = -1,Min=INT_MAX;
+        map<char,int> mp;
+        char x;
+        for (int i = 0; i < s.size(); i++) {
+            mp[s[i]]++;
+        }
+        for (int i = 0; i < s.size(); i++) {
+            Min = min(Min,mp[s[i]]);
+            if (Max < mp[s[i]]) {
+                Max = mp[s[i]];
+                x = s[i];
+            }
+        }
+        int flag = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (Min == mp[s[i]] && x != s[i]) {
+                s[i] = x;
+                break;
+            }
+        }
+        cout<<s<<"\n";
+    }
+}

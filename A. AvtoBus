@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+bool isPerfectSquare(ll num) {
+    ll root = sqrt(num);
+    return root * root == num;
+}
+
+int main() {
+    int tt;
+    cin>>tt;
+    while (tt--) {
+        unsigned long long int n,x,y,Min,Max;
+        cin>>n;
+        if (n & 1 || n==2) {
+            cout<<-1<<endl;
+        } else {
+            x = n%4;
+            y = n%6;
+
+            if (y==4) {
+                Min = (n-4)/6 + 1;
+            } else if (y==2) {
+                Min = (n-8)/6 + 2;
+            } else if (y==0){
+                Min = n/6;
+            }
+
+            if (x==2) {
+                Max = (n-6)/4 + 1;
+            } else if (x==0) {
+                Max = n/4;
+            }
+
+            cout<<Min<<" "<<Max<<endl;
+        }
+    }
+}
